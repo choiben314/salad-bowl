@@ -1,0 +1,112 @@
+body {
+    font: normal 14px "Oswald", Verdana, Arial, sans-serif;
+    text-align:center;
+}
+
+.block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width:100%;
+}
+
+#title {
+	margin-top: 15vh;
+}
+
+#logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	width:114px;
+	height:80px;
+}
+
+button {
+	max-width: 280px;
+	display: inline-block;
+    background-color: transparent;
+    border-radius: 4px;
+    color: #555;
+    text-align: center;
+    font: normal 14px "Oswald", Verdana, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #bbb;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 30px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+button:hover {
+    border: 1px solid #888;
+}
+
+input {
+	max-width: 280px;
+	font: normal 14px "Oswald", Verdana, Arial, sans-serif;
+	border: 1px solid #D1D1D1;
+    height: 36px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: none;
+    background: #fff;
+    -webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+}
+
+input:focus, select:focus {
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+select {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	max-width: 280px;
+	font: normal 14px "Oswald", Verdana, Arial, sans-serif;
+	border: 1px solid #D1D1D1;
+    padding: 3px 5px;
+    border-radius: 4px;
+    box-shadow: none;
+    background: #fff;
+    outline: none;
+}
+
+.list-child {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.footer {
+	font: normal 10px "Oswald", Verdana, Arial, sans-serif;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+/*@media only screen and (max-width: 600px) {
+	body{
+		background-color: lightblue;
+	}
+}
+
+@media not screen and (max-width: 600px) {
+  	body{
+		background-color: lightblue;
+	}
+}*/

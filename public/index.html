@@ -1,0 +1,146 @@
+<!doctype html>
+
+<head>
+  <title>SaladBowl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA7tPaGlu0jh76_edrX6mnHD-hQLjVDg3c",
+    authDomain: "salad-bowl-59935.firebaseapp.com",
+    databaseURL: "https://salad-bowl-59935.firebaseio.com",
+    projectId: "salad-bowl-59935",
+    storageBucket: "salad-bowl-59935.appspot.com",
+    messagingSenderId: "721900117316"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<body>
+  <h1 id="title">SaladBowl</h1>
+  <div id="init-game">
+    <img src="logo.jpg" alt="SaladBowl Logo" id="logo">
+    <button id="create">New Game</button>
+    <button id="join">Join Game</button>
+    <div class="footer">
+      <p>SaladBowl designed by Ben Choi</p>
+    </div>
+  </div>
+
+  <div id='create-options' class="not-init" style="display:none">
+    <form action="#">
+        <input class="block" type="text" id="username-create" placeholder="Enter your name">
+        <div class="block">
+          <label for="num-team-select"># of teams:</label>
+          <select id="num-team-select">
+            <option value="2" selected="selected">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="block">
+          <button id="submit-create">Create</button>
+
+          <button id="create-back">Back</button>
+        </div>
+    </form>
+  </div>
+
+  <div id="join-options" class="not-init" style="display:none">
+    <form action="#">
+      <div class="block">
+        <input type="text" id="game-id" placeholder="Enter an access code">
+      </div>
+      <div class="block">
+      <input type="text" id="username-join" placeholder="Enter your name">
+      </div>
+      <div class="block">
+        <button id="submit-join">Join</button>
+        <button id="join-back">Back</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="waiting" class="not-init" style="display:none">
+    <h1>Waiting for players...</h1>
+    <h2 id="waiting-game-id"></h2>
+    <div id="waiting-player-list" class="block"></div>
+    <button id="start" class="block">Start Game</button>
+  </div>
+
+  <div id="get-words" class="not-init" style="display:none">
+    <h1>Enter three words or phrases</h1>
+    <form id="get-words-form" action="#">
+      <div class="block">
+        <input type="text" id="word-1" class="get-words-class" placeholder="#1">
+      </div>
+      <div class="block">
+        <input type="text" id="word-2" class="get-words-class" placeholder="#2">
+      </div>
+      <div class="block">
+        <input type="text" id="word-3" class="get-words-class" placeholder="#3">
+      </div>
+      <div class="block">
+        <button disabled id="submit-words" type="submit">Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div id="waiting-words" class="not-init" style="display:none">
+    <h1>Waiting for all submissions...</h1>
+  </div>
+
+  <div id="timer" class="not-init" style="display:none">
+    <h1 id="timer-text">1:00</h1>
+  </div>
+
+  <div id="spectator" class="not-init" style="display:none">
+    <h1>You are a SPECTATOR</h1>
+  </div>
+
+  <div id="guesser" class="not-init" style="display:none">
+    <h1>You are GUESSING</h1>
+  </div>
+
+  <div id="clue-giver" class="not-init" style="display:none">
+    <h1>You are CLUING</h1>
+    <button class="block" id="start-timer">Start Round</button>
+    <div id="in-progress" style="display:none">
+      <h3 id="current-word">Loading...</h3>
+      <div id="pass-correct">
+        <button id="pass">Pass</button>
+        <button id="correct">Correct!</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="end-game" class="not-init" style="display:none">
+    <h1>Game Over!</h1>
+    <h3>Team Scores:</h3>
+    <div id="team-points-list" class="block">
+    </div>
+    <button id="back-to-home">Back to Home</button>
+  </div>
+
+</body>
+
+<script src="scripts/main.js"></script>
+</html>
