@@ -94,9 +94,18 @@ select {
 .footer {
 	font: normal 10px "Oswald", Verdana, Arial, sans-serif;
 	position: absolute;
-	bottom: 0;
+	bottom: 5px;
 	left: 0;
 	right: 0;
+}
+
+#credits {
+	margin: 0;
+	padding: 0;
+}
+
+#github {
+	clear: both;
 }
 
 /*@media only screen and (max-width: 600px) {

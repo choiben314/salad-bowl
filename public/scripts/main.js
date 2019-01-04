@@ -448,14 +448,15 @@ function endRound(queueEmpty) {
 			            			}
 			            			// queue is not empty or queue is empty and not last round
 			            			if (!queueEmpty || (queueEmpty && roundsRemaining.val() != 1)) {
-				            			firebase.database().ref('/rooms/' + gameID + '/numTeams').once('value', numTeams => {
-				            				firebase.database().ref('/rooms/' + gameID + '/currTeamIdx').transaction(current_value => {
-				            					return ((current_value || 0) + 1) % numTeams.val();
-				            				});
-				            			});
-				            			firebase.database().ref('/rooms/' + gameID + '/teams/' + myTeam + '/teamCount').once('value', teamCount => {
-				            				firebase.database().ref('/rooms/' + gameID + '/teams/' + myTeam + '/currIdx').transaction(current_value => {
+			            				firebase.database().ref('/rooms/' + gameID + '/teams/' + myTeam + '/teamCount').once('value').then(teamCount => {
+				            				return firebase.database().ref('/rooms/' + gameID + '/teams/' + myTeam + '/currIdx').transaction(current_value => {
 				            					return ((current_value || 0) + 1) % teamCount.val();
+				            				});
+				            			}).then(count => {
+				            				firebase.database().ref('/rooms/' + gameID + '/numTeams').once('value', numTeams => {
+					            				firebase.database().ref('/rooms/' + gameID + '/currTeamIdx').transaction(current_value => {
+					            					return ((current_value || 0) + 1) % numTeams.val();
+					            				});
 				            				});
 				            			});
 			            			}
@@ -511,6 +512,7 @@ function showEndGame() {
 		myUsername = null;
 		myTeam = null;
 		time = null;
+		hide(passCorrectElement);
 	});
 }
 
